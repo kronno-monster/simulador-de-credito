@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom'
+import { formatCOP, colorEstado } from '../utils/formatters'
 
-const COLORES = { aprobado: '#22C97B', condicionado: '#F0A025', rechazado: '#F05252' }
 const ETIQUETAS = { aprobado: '✅ Crédito Aprobado', condicionado: '⏳ Aprobado con Condiciones', rechazado: '❌ Crédito Rechazado' }
 
 export default function Resultado() {
@@ -10,7 +10,7 @@ export default function Resultado() {
   if (!state?.resultado) { navigate('/'); return null }
 
   const { solicitud, scoring } = state.resultado
-  const color = COLORES[solicitud.estado] ?? '#8A9CC4'
+  const color = colorEstado(solicitud.estado)
 
   const fila = (label, valor) => (
     <div style={{
@@ -40,11 +40,11 @@ export default function Resultado() {
       {/* Detalle financiero */}
       <div className="card" style={{ marginBottom: 16 }}>
         <p style={{ color: '#D4A843', fontWeight: 600, marginBottom: 12 }}>💰 Detalle financiero</p>
-        {fila('Monto solicitado',  `$${Number(solicitud.monto_solicitado).toLocaleString('es-CO')}`)}
-        {fila('Plazo',             `${solicitud.plazo_meses} meses`)}
-        {fila('Cuota mensual',     `$${Number(scoring.cuotaCalculada).toLocaleString('es-CO')}`)}
-        {fila('Total a pagar',     `$${Number(scoring.totalAPagar).toLocaleString('es-CO')}`)}
-        {fila('Total intereses',   `$${Number(scoring.totalIntereses).toLocaleString('es-CO')}`)}
+        {fila('Monto solicitado', formatCOP(solicitud.monto_solicitado))}
+        {fila('Plazo', solicitud.plazo_meses + ' meses')}
+        {fila('Cuota mensual', formatCOP(scoring.cuotaCalculada))}
+        {fila('Total a pagar', formatCOP(scoring.totalAPagar))}
+        {fila('Total intereses', formatCOP(scoring.totalIntereses))}
       </div>
 
       {/* Reglas aplicadas */}
