@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { obtenerMisSolicitudes } from '../services/api'
+import { SkeletonList } from '../components/Skeleton'
 
 const COLORES = { aprobado: '#22C97B', condicionado: '#F0A025', rechazado: '#F05252' }
 
@@ -18,7 +19,9 @@ export default function Historial() {
   }, [])
 
   if (cargando) return (
-    <p style={{ textAlign: 'center', marginTop: 60, color: '#8A9CC4' }}>Cargando...</p>
+    <div style={{ maxWidth: 700, margin: '0 auto', padding: '32px 16px' }}>
+      <SkeletonList cantidad={4} />
+    </div>
   )
 
   if (error) return (
