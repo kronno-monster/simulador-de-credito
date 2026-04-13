@@ -11,6 +11,7 @@ export default function Navbar() {
   const links = [
     { to: '/',          label: 'Solicitar' },
     { to: '/historial', label: 'Historial' },
+    { to: '/perfil',    label: 'Mi perfil' },
     ...(esAdmin ? [{ to: '/admin', label: '⚙️ Admin' }] : [])
   ]
 
