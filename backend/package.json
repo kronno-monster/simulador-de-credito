@@ -1,0 +1,19 @@
+{
+  "name": "simulador-creditos-backend",
+  "version": "1.0.0",
+  "description": "Backend del Simulador de Créditos con Análisis de Riesgo - SENA Grupo 5",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

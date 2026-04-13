@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Sora', sans-serif;
+  background: #0B1120;
+  color: #E8EEFF;
+  min-height: 100vh;
+}
+
+input, select, button, textarea { font-family: 'Sora', sans-serif; }
+
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  background: #19243D;
+  border: 1px solid #2A3858;
+  border-radius: 8px;
+  color: #E8EEFF;
+  font-size: 15px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  outline: none;
+  transition: border 0.2s;
+}
+.input:focus { border-color: #D4A843; }
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: #D4A843;
+  color: #0B1120;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #F0C96A; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-secondary {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: #D4A843;
+  border: 1px solid #D4A843;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+.btn-secondary:hover { background: #19243D; }
+
+.card {
+  background: #19243D;
+  border: 1px solid #2A3858;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+label {
+  font-size: 13px;
+  color: #8A9CC4;
+  font-weight: 500;
+  display: block;
+}
