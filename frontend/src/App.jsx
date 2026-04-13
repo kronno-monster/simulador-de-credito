@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
+import { NotificationProvider } from './context/NotificationContext'
 import Navbar     from './components/Navbar'
 import Formulario from './pages/Formulario'
 import Resultado  from './pages/Resultado'
@@ -7,6 +8,7 @@ import Historial  from './pages/Historial'
 import Login      from './pages/Login'
 import Registro   from './pages/Registro'
 import Admin      from './pages/Admin'
+import Perfil     from './pages/Perfil'
 
 function RutaPrivada({ children }) {
   const { estaLogueado } = useAuth()
@@ -36,6 +38,9 @@ function AppRoutes() {
         <Route path="/historial" element={
           <RutaPrivada><Historial /></RutaPrivada>
         } />
+        <Route path="/perfil" element={
+          <RutaPrivada><Perfil /></RutaPrivada>
+        } />
         <Route path="/admin" element={
           <RutaAdmin><Admin /></RutaAdmin>
         } />
@@ -48,9 +53,11 @@ function AppRoutes() {
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
+      <NotificationProvider>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+      </NotificationProvider>
     </AuthProvider>
   )
 }
